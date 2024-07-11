@@ -18,7 +18,7 @@
   * Dynamic word lists
   * Custom word lists
   * Linux/Mac/Win support
-  * ctrl+Backspace to delete whole previous word (ctrl+h also works)
+  * ctrl+backspace and ctrl+h deletes the whole previous word 
 
 ## Installation
 
