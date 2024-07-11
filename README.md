@@ -18,6 +18,7 @@
   * Dynamic word lists
   * Custom word lists
   * Linux/Mac/Win support
+  * ctrl+backspace and ctrl+h deletes the whole previous word 
 
 ## Installation
 
@@ -30,15 +31,55 @@ yay -S typioca-git
 ### Go
 
 ```
-go install github.com/bloznelis/typioca@latest
+go install github.com/Sha-N0/typioca@latest
 ```
 
 **Note:** This will install typioca in `$GOBIN`, which defaults to `$GOPATH/bin` or `$HOME/go/bin` if the GOPATH environment variable is not set.
 
+Ensure you have the latest Go version, as typioca only works with Go 1.20+. 
+`sudo apt install golang` will not give the latest  Go version. Follow the below to install the lastest Go verison: 
+
+#### Uninstall the existing Go version:
+```bash
+sudo apt remove golang-go
+sudo apt purge golang-go
+```
+
+#### Download and install the latest Go version:
+Visit the [official Go download page](https://go.dev/dl/) and get the latest version. For example, to download and install Go 1.20 or later:
+```bash
+wget https://go.dev/dl/go1.22.5.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.22.5.linux-amd64.tar.gz
+```
+
+#### Update your PATH to include the Go binary:
+```bash
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.zshrc
+source ~/.zshrc  # or source ~/.bashrc if you use Bash
+```
+
+#### Verify Go installation:
+```bash
+go version
+```
+You should see something like `go version go1.22.5 linux/amd64`.
+
+#### Set up Go environment variables:
+```bash
+echo 'export GOPATH=$HOME/go' >> ~/.zshrc
+echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.zshrc
+echo 'export GO111MODULE=on' >> ~/.zshrc
+source ~/.zshrc  # or source ~/.bashrc if you use Bash
+```
+#### Install typioca using go install:
+```bash
+go install github.com/Sha-N0/typioca@latest
+```
+
 ### Homebrew
 
 ```
-brew tap bloznelis/tap
+brew tap Sha-N0/tap
 brew install typioca
 ```
 
@@ -70,7 +111,7 @@ xbps-install typioca
 ### Winget
 
 ```
-winget install bloznelis.typioca
+winget install Sha-N0.typioca
 ```
 
 ### Building from source
