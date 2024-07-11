@@ -100,11 +100,11 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.state = initTimerBasedTest(state.settings, state.mainMenu)
 				return m, nil
 
-			case "backspace", "ctrl+h":
+			case "backspace":
 				handleBackspace(&state.base)
 				m.state = state
 
-			case "ctrl+w":
+			case "ctrl+w", "ctrl+h":
 				handleCtrlW(&state.base)
 				m.state = state
 
